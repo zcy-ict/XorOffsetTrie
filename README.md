@@ -45,5 +45,7 @@ g++ 5.4.0
 sh run.sh
 
 make
+
 ./main --version 6 --method_name OffsetTrie    --rules_file data/ipv6_rrc00 --traces_file NULL --traces_shuffle 1 --lookup_round 1 --repeat_num 100 --force_test 1 --print_mode 0
+
 ./main --version 6 --method_name XorOffsetTrie --rules_file data/ipv6_rrc00 --traces_file NULL --traces_shuffle 1 --lookup_round 1 --repeat_num 100 --force_test 1 --print_mode 0
