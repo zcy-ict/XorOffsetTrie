@@ -7,11 +7,13 @@ If there are any problems or bugs, welcome to discuss with me
 
 zhangchunyang@ict.ac.cn
 
+zhangchunyangict@outlook.com
+
 ## Experimental environment
 
 Ubuntu 16.04
 
-g++ 5.4.0  
+g++ 5.4.0
 
 ## Parameters
 **--version :**                 "4" for ipv4 lookup, "6" for ipv6 lookup

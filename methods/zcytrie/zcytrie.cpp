@@ -12,21 +12,21 @@ ZcyTrieNode* ZcyTrieNode::Create(nexthop_t _port, bool _solid_node) {
 }
 
 int ZcyTrieNode::CountNum() {
-    if (this == NULL)
-        return 0;
-    return 1 + child[0]->CountNum() + child[1]->CountNum();
+    int num = 1;
+    for (int i = 0; i < 2; ++i)
+        if (child[i] != NULL)
+            num += child[i]->CountNum();
+    return num;
 }
 
 void ZcyTrieNode::Free() {
-    if (this != NULL)
-        free(this);
+    free(this);
 }
 
 void ZcyTrieNode::FreeAll() {
-    if (this == NULL)
-        return;
-    child[0]->FreeAll();
-    child[1]->FreeAll();
+    for (int i = 0; i < 2; ++i)
+        if (child[i] != NULL)
+            child[i]->FreeAll();
     free(this);
 }
 
@@ -691,7 +691,8 @@ uint64_t ZcyTrie::MemorySize() {
 }
 
 int ZcyTrie::Free() {
-    root->FreeAll();
+    if (root != NULL)
+        root->FreeAll();
     for (int i = 0; i < level_num; ++i)
         free(sub_node_num[i]);
     for (int i = 0; i <= level_num; ++i) {
